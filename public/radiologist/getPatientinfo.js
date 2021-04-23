@@ -82,8 +82,8 @@ fetch(`/Radiologist/Account/getPatientInfo?email=${email}`,{
 
 
 async function initialize() {
-    model = await tf.loadLayersModel('http://localhost:3000/tfjs-models/model.json');
-
+    model = await tf.loadLayersModel('https://imn-pneumonia-detection-tool.herokuapp.com/tfjs-models/model.json');
+   
 }
 
 function arrayBufferToBase64(buffer) {
