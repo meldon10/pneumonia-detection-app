@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Table - BE PROJECT</title>
+    <meta name="description" content="Making a online diagnosis tool for instant and accurate pneumonia detection results">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="/assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean-1.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="/assets/css/Team-Boxed.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        .btn {
+                background-color: DodgerBlue; /* Blue background */
+                border: none; /* Remove borders */
+                color: white; /* White text */
+                padding: 6px 14px; /* Some padding */
+                font-size: 10px; /* Set a font size */
+                cursor: pointer; /* Mouse pointer on hover */
+            }
+
+            /* Darker background on mouse-over */
+            .btn:hover {
+                background-color: RoyalBlue;
+            }
+
+            #myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 102%; /* Full width */
+    height: 105%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    height: 85%;
+    width: 100%;
+    max-width: 830px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.patientImage:hover{
+    cursor: pointer;
+    text-decoration: underline;
+   
+}
+.patientImage{
+   
+    color:blue;
+   
+}
+
+    </style>
+
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <img  src="/images/logo.png" height="70px" width="100%">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="">
+                    <div class="sidebar-brand-icon rotate-n-15"></div>
+                 
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link" href="" id="userProfile"><i class="fas fa-user"></i><span style="color: white;">PROFILE</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href=""><i class="fas fa-table"></i><span "color: white;">PATIENT RECORDS</span></a></li>
+                    
+                    {{!-- <li class="nav-item"><a class="nav-link" href="" id="newPatient"><i class="fas fa-user-circle"></i>ENTER NEW PATIENT DETAILS<span></span></a></li> --}}
+
+                    <li class="nav-item"><a class="nav-link" href="" id="logout"><i class="far fa-user-circle"></i><span "color: white;">LOGOUT</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <nav style="background: rgb(255, 255, 255);" class="navbar navbar-light navbar-expand-md navigation-clean">
+                        <div class="container"><a class="navbar-brand" href=""></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                            <div class="collapse navbar-collapse"
+                                id="navcol-1">
+                                <ul class="nav navbar-nav ml-auto">
+                                    <li class="nav-item"></li>
+                                    <li class="nav-item"></li>
+                                    <li class="nav-item"></li>
+                                    <li>
+                                        <p id="username" style="color: rgb(78, 75, 218);margin-top:10px;margin-bottom:5px;"></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="card shadow">
+                        
+                        <div class="card-body">
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                             <tr>
+                                            <th><strong style="color:#4f6ecc;font-size:15px;">Patient Name</strong></th>
+                                            <th><strong style="color:#4f6ecc;font-size:15px;">Patient E-mail ID</strong></th>
+                                            <th><strong style="color:#4f6ecc;font-size:15px;">Patient Mobile Number</strong></th>
+                                            <th><strong style="color:#4f6ecc;font-size:15px;">Age</strong></th>
+                                            <th><strong style="color:#4f6ecc;font-size:15px;">Entry Date</strong></th>
+                                            <th></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody class="records">
+                                              {{!-- <tr id="patientRecord-1">
+                                                <td class="patientImage">Nimesh</td>
+                                                <td>meldondcunha10@gmail.com</td>
+                                                <td>7798918184</td>
+                                                <td>33</td>
+                                                <td>10/12/2020</td>
+                                                <td><button class="btn">Delete</button></td>
+                                            </tr>  --}}
+
+                                             
+                                         
+                                        
+                                    
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr></tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            {{!-- <div class="row">
+                                <div class="col-md-6 align-self-center">
+                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 of (total no, of record list)</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination">
+                                            <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {{!-- START --}}
+          
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+            <!-- The Close Button -->
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+            </div>
+            
+             {{!-- END --}}
+
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                             <hr style="color: #4f6ecc;">
+                    <div class="text-center my-auto copyright"><strong><span style="color: rgb(86, 86, 139);">&nbsp;BE PROJECT 2021</span></strong></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/radiologist/displayRecords.js"></script>
+   
+</body>
+
+</html>

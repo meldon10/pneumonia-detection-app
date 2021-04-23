@@ -1,0 +1,157 @@
+{{!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login - BE PROJECT</title>
+    <meta name="description" content="Making a online diagnosis tool for instant and accurate pneumonia detection results">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="/assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean-1.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="/assets/css/Team-Boxed.css">
+</head>
+
+<body class="bg-gradient-primary">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-12 col-xl-10">
+                <div class="card shadow-lg o-hidden border-0 my-5">
+                    <div class="card-body p-0">
+                        <div class="row" >
+                            <div class="col-lg-6 offset-lg-3">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h4 class="text-dark mb-4">Welcome Back!</h4>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
+                                        <div class="form-group"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
+                                        <div class="form-group">
+                                           <div id="errorMessage">
+                                                  
+                                           </div>
+                                        </div><button id="loginRadiologist" class="btn btn-primary btn-block text-white btn-user"  type="submit">&nbsp;<a href="" style="color: rgb(255,255,255);text-decoration: none;">Log in as Radiotherapist</a></button>
+                                        <hr>
+                                        <hr>
+                                    </form>
+                                    <div class="text-center"><a class="small" href="forgot-password.html">Forgot Password?</a></div>
+                                    <div class="text-center"><a class="small" href="/radiologist/createAccount">Create an Account!</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/radiologist/radiologistLogin.js"></script>
+</body>
+
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+  		<meta charset="UTF-8"/>
+  		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  		<meta http-equiv="X-UA-Compatible"
+  		content="ie=edge" />
+  		<link 
+  			rel=:"stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  			integrity="sha384-50oBUHEmvpQ
+  			+1lW4y57PTFmhCaXp0ML5d60M1M7uH2
+  			+nqUivzIebhndOJK28anvf"
+  			crossorigin="anonymous"/>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  		<link rel="stylesheet" href="/assets/css/login.css"/>
+  	</head>
+  	<body style="background-color:#486fb0;">
+  		<div class="container" id="container">
+			<div class="form-container sign-up-container">
+				<form style="padding: 0px 5px;">
+					<h1 style="margin-bottom: 5px;">Create Account</h1>
+                    
+                    <span>  
+                        <input id="firstName" type="text" placeholder="First Name" size="18" />&nbsp;&nbsp;
+                        <input id="lastName" type="text" placeholder="Last Name" size="18" />
+                    </span>
+
+                    <input style="width: 95%;" id="email" type="email" placeholder="Email" />
+                    <div id="errorEmail"></div>
+                    <input style="width: 95%;" id="address" type="text" placeholder="Address" />
+				
+
+                    <span>
+                        <input id="mobileNumber" type="text" placeholder="Mobile No" size="18"/>&nbsp;&nbsp;
+                        <input id="country" type="text" placeholder="Country" size="18"/>
+                    </span>
+
+                    <div id="errorPhone"></div>
+					<span>
+                        
+                        <input id="password" type="password" placeholder="Password" size="18"/>&nbsp;&nbsp;
+                        <input id="conPassword" type="password" placeholder="Confirm Password" size="18"/>
+                    </span>
+
+                        <div id="errorPassword"></div>
+                        <div id="errorconfPassword"></div>
+                   
+                     
+		
+					<button style="margin-top:10px;" id="submitDetails">Sign Up</button>
+				</form>
+			</div>
+			<div class="form-container sign-in-container">
+				<form style="padding: 0px 5px;" >
+					<h1 style="margin-bottom:15px ;">Sign in</h1>
+					
+					<input id="loginID" type="email" placeholder="Email" size="40"/>
+					<input id="loginPassword" type="password" placeholder="Password" size="40"/>
+					<span style="  float: left;margin-left: 270px;margin-top: -34px;position: relative;z-index: 2;cursor:pointer;"><i  class="far fa-eye" id="togglePassword"></i></span>
+                    <div style ="margin-top:4px;" id="userError">
+                        
+                    </div>
+					<button style="margin-top:20px;" id="loginButton">Log in</button>
+				</form>
+			</div>
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h1>Welcome!</h1>
+						<p>Already have an account click here to login!</p>
+						<button class="ghost" id="signIn">Sign In</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<h1>Welcome!</h1>
+						<p>Don't have a account click here to sign up for free!</p>
+						<button class="ghost" id="signUp">Sign Up</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<script src="/radiologist/radiologistLogin.js"></script>
+	</body>
+</html>
+
+
+

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - BE PROJECT</title>
+    <meta name="description" content="Making a online diagnosis tool for instant and accurate pneumonia detection results">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="/assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean-1.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="/assets/css/Team-Boxed.css">
+
+    <style>
+        input[type=file]::file-selector-button {
+        border: 2px solid #4e73df;
+        color: white;
+        border-radius: .3em;
+        background-color: #4e73df;
+        transition: 1s;
+      
+        
+}
+
+
+
+    </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                 <img  src="/images/logo.png" height="70px" width="100%">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="">
+                    <div class="sidebar-brand-icon rotate-n-15"></div>
+                    
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link" href="" id="userProfile"><i class="fas fa-user"></i><span>PROFILE</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="" id="patientRecodrs"><i class="fas fa-table"></i><span>PATIENT RECORDS</span></a></li>
+                    
+                    <li class="nav-item"><a class="nav-link active" href=""><i class="fas fa-user-circle"></i>ENTER NEW PATIENT<span></span></a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="" id="logout"><i class="far fa-user-circle"></i><span>LOGOUT</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            
+                            
+                            
+                                   
+                                    <li>
+                                        <p id="username" style="color: rgb(78, 75, 218); margin-top:10px;margin-bottom:5px;"></p>
+                                    </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            
+                        </ul>
+                    </div>
+                </nav>
+                <ul></ul><label  style="font-size: 28px;color: #4f6ecc;margin-left:60px"><strong>ENTER PATIENT DETAILS AND X-RAY.&nbsp;</strong></label>
+                <div id="compulsory"></div>
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4"></div>
+                </div>
+                <ul>
+                    <form action="/Radiographer/Account/addPatient" method="POST" enctype="multipart/form-data">
+                    {{!-- <li style="text-shadow: 0px 0px;color: rgb(59,78,218);">Enter Patient Name :<br><input name="patientName" type="text" id="patientName" size="50"><br></li>
+                    <li style="text-shadow: 0px 0px;color: rgb(59,78,218);">Enter Patient Email-ID :<br><input type="text" name="patientEmail" id="patientEmail"><br></li>
+                    <li style="text-shadow: 0px 0px;color: rgb(59,78,218);">Enter Patient Mobile Number :<br><input type="text" name="patientMob" id="patientMob"><br></li>
+                    <li style="text-shadow: 0px 0px;color: rgb(59,78,218);">Enter Patient Age :&nbsp;<br><input type="text" name="patientAge" id="patientAge"><br></li>
+                    <li style="text-shadow: 0px 0px;color: rgb(31,52,205);">Select Entry Date :<br><input type="date" name="date" id="date"><br></li>
+                    <li style="text-shadow: 0px 0px;color: rgb(31,52,205);">Enter RadioGrapher Name :<br><input type="text" name="radiographerName" id="radiographerName"><br></li>
+                    <li style="text-shadow: 0px 0px;color: rgb(31,52,205);">Enter Image :<br><input type="file" name="xray" id="imageFile"><br></li>
+
+                     <button class="btn btn-primary" id="submitDetails" type="submit" style="font-size: 14px; margin-top:20px;">UPLOAD IMAGE FOR RADIOTHERAPY RESULT</button>
+                     --}}
+                    
+                    {{!-- New Code --}}
+                        <div class="container">
+                        <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input id="patientName" class="form-control form-control-user"  type="text" placeholder="Patient Name" ></div>
+                                    <div class="col-sm-6"><input id="patientEmail" class="form-control form-control-user lastName" type="text" placeholder="Email" > 
+                                    <div id="errorEmail"></div>
+                                   </div>
+                                  
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" id="patientMob" type="text" placeholder="Contact Number" name="number">
+                                     <div id="errorPhone"></div>
+                                     
+                                    </div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="patientAge" placeholder="Age"></div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input  class="form-control form-control-user" type="date" name="date" id="date">
+                                    <div id="errorPhone"></div>
+                                    </div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="radiographerName"placeholder="Radiographer Name" ></div>
+                                </div>
+
+                                <div class="form-group row">
+                                 
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        
+                                        <input class="form-control" style=" padding-left: .0em; padding-top:.20em;"  type="file" name="xray" id="imageFile">
+                                     
+                                   
+                                    </div>
+                          
+                                </div>
+
+                                {{!-- <input id="radiographerRegister" class="btn btn-primary btn-block text-white btn-user"  type="submit" style="color: rgb(255,255,255);text-decoration: none;"/> --}}
+                                <hr>
+                               <button class="btn btn-primary" id="submitDetails" type="submit" style="font-size: 14px; margin-top:20px;">Submit Details</button>
+                            </div>
+                    {{!-- End Code --}}
+
+
+
+                    </form>
+                    
+               
+                </ul>
+                
+
+            
+              
+                
+                    </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <hr style="color: blueviolet;">
+                    <div class="text-center my-auto copyright"><strong><span style="color: rgb(86, 86, 139);">&nbsp;BE PROJECT 2021</span></strong></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/radiographer/newPatientDetails.js"></script> 
+</body>
+
+</html>
